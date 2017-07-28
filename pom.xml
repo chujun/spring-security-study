@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.chujun.spring.security</groupId>
-    <artifactId>arch-parent</artifactId>
+    <artifactId>study</artifactId>
     <version>1.0.0.4-SNAPSHOT</version>
     <!--<version>1.0.0.3</version>-->
 
@@ -16,7 +16,7 @@
     <!--</modules>-->
     <packaging>pom</packaging>
 
-    <name>arch</name>
+    <name>spring-securiy-study</name>
     <url>http://maven.apache.org</url>
 
     <properties>
