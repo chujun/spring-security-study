@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:s="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<mvc:annotation-driven />
+	
+	<context:component-scan base-package="com.edu.security" />
+	
+	<!-- 处理静态资源的 -->
+	<mvc:default-servlet-handler />
+	
+	<s:user-service>
+		<s:user name="user" authorities="ROLE_USER" password="123" />
+		<s:user name="admin" authorities="ROLE_USER,ROLE_ADMIN" password="123" />
+	</s:user-service>
+	
+	<s:http>
+		<s:intercept-url pattern="/home" access="hasRole('ROLE_USER')" />
+		<s:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
+		<s:intercept-url pattern="/**/*.html" access="permitAll" />
+		<s:intercept-url pattern="/**/*.css" access="permitAll" />
+		<s:intercept-url pattern="/**/*.js" access="permitAll" />
+		<s:intercept-url pattern="/**/*.jpg" access="permitAll" />
+		<s:intercept-url pattern="/**/*.png" access="permitAll" />
+		<s:intercept-url pattern="/**" access="authenticated" />
+		<s:form-login />
+	</s:http>
+
+</beans>
