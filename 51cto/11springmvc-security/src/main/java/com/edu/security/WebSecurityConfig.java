@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		judm.setEnableGroups(false);
 		judm.setUsersByUsernameQuery("select phone,userpwd,(case when status in (1,4) then 1 else 0 end) enabled from tb_users where phone=? and is_del=0");
 		judm.setAuthoritiesByUsernameQuery("select a.phone,b.role_name from tb_users a,tb_roles b,tb_user_role c where a.is_del=0 and a.phone=? and c.uid=a.uid and c.rid=b.rid");
-		judm.setRolePrefix("ROLE_");
+		//judm.setRolePrefix("ROLE_");
 	}
 	
 	protected void configure(HttpSecurity http) throws Exception {
