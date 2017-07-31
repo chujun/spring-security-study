@@ -8,7 +8,7 @@ import org.springframework.web.servlet.support.AbstractDispatcherServletInitiali
  */
 public class WebAppSecurityInitializer extends AbstractSecurityWebApplicationInitializer {
 
-	protected String getDispatcherWebApplicationContextSuffix() {
-		return AbstractDispatcherServletInitializer.DEFAULT_SERVLET_NAME;
-	}
+    protected String getDispatcherWebApplicationContextSuffix() {
+        return AbstractDispatcherServletInitializer.DEFAULT_SERVLET_NAME;
+    }
 }

@@ -6,7 +6,7 @@
     <packaging>war</packaging>
     <version>1.0.0</version>
 
-    <name>spring-security-helloworld-xml Maven Webapp</name>
+    <name>51cto-02-spring-security-helloworld-xml Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -55,6 +55,7 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+            <!--以 mvn clean jetty:run方式运行-->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>

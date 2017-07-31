@@ -28,6 +28,7 @@
 		<s:intercept-url pattern="/**/*.js" access="permitAll" />
 		<s:intercept-url pattern="/**/*.jpg" access="permitAll" />
 		<s:intercept-url pattern="/**/*.png" access="permitAll" />
+		<!--只要登录了(认证了)就可以访问的资源-->
 		<s:intercept-url pattern="/**" access="authenticated" />
 		<s:form-login />
 	</s:http>
