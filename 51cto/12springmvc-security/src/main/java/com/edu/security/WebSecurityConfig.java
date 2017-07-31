@@ -17,7 +17,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private DataSource dataSource;
-	
+
+	/**
+	 * 描述角色之间的关系
+	 * @return
+     */
 	@Bean
 	public RoleHierarchy createRoleHierarchy(){
 		RoleHierarchyImpl rh = new RoleHierarchyImpl();
