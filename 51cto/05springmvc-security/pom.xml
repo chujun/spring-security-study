@@ -6,7 +6,7 @@
 	<packaging>war</packaging>
 	<version>1.0.0</version>
 
-	<name>51cto-04-springmvc-security</name>
+	<name>51cto-05-springmvc-security</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
