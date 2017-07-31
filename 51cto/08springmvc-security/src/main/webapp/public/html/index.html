@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Logout Page</title>
+</head>
+<body>
+<a href="/logout">GET logout</a>
+<br />
+<form action="/logout" method="post">
+	<input type="hidden" name="${ _csrf.parameterName}" value="${ _csrf.token}" />
+	<input type="submit" value="POST Logout"/>
+</form>
+<br />
+<button onclick="doLogout()">doLogout</button>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+<script type="text/javascript">
+	function doLogout(){
+		$.get('/sys/doLogout',{},function(resp){
+			if(resp.code == '1'){
+				alert('退出成功');
+				window.location.href='/home';
+			} else {
+				alert(resp.msg);
+			}
+		});
+	}
+</script>
+</body>
+</html>
