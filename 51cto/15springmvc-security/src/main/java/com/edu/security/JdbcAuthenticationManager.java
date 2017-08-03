@@ -45,7 +45,9 @@ public class JdbcAuthenticationManager extends JdbcTemplate implements Authentic
 			Collection<GrantedAuthority> authorities = new ArrayList<>();
 			for(Map<String, Object> authoritie : authoritiesList){
 				if(authoritie.get("authority") != null){
-					authorities.add(new SimpleGrantedAuthority("ROLE_" + authoritie.get("authority").toString()));	 
+					//comment-cj:这里是很容易出错的地方,这里加了前缀"ROLE_",则数据库里权限表不能再加"ROLE_"
+					//authorities.add(new SimpleGrantedAuthority("ROLE_" + authoritie.get("authority").toString()));
+					authorities.add(new SimpleGrantedAuthority( authoritie.get("authority").toString()));
 				}
 			}
 			

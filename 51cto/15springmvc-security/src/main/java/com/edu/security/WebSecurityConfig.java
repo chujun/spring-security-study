@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		
+		//comment-cj:这里不需要加上前缀,因为会默认添加,role should not start with 'ROLE_' since it is automatically inserted. Got 'ROLE_GUEST'
 		http.authorizeRequests().antMatchers("/index").hasRole("GUEST");
 		http.authorizeRequests().antMatchers("/home").hasRole("USER");
 		http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN");
