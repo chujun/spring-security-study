@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		JdbcUserDetailsManager judm = auth.jdbcAuthentication().dataSource(dataSource).getUserDetailsService();
 		judm.setUsersByUsernameQuery("select phone,userpwd,(case when status in (1,4) then 1 else 0 end) enabled from tb_users where phone=? and is_del=0");
-		//方法一:直接通过sql语句根据用户名查询出权限列表
+		//方法一:直接通过sql语句根据用户名查询出权限列表(包括用户角色权限及下级角色权限直接查询出来)
 		judm.setAuthoritiesByUsernameQuery("select rid,role_name from tb_roles where spath like (select concat('%',b.spath) spath from tb_users a,tb_roles b,tb_user_role c where a.is_del=0 and a.phone=? and c.uid=a.uid and c.rid=b.rid)");
 		//方法二:通过实现RoleHierarchy
 		//judm.setAuthoritiesByUsernameQuery("select a.phone,b.role_name from tb_users a,tb_roles b,tb_user_role c where a.is_del=0 and a.phone=? and c.uid=a.uid and c.rid=b.rid");

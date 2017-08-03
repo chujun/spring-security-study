@@ -17,7 +17,7 @@ public class SimpleRoleHierarchy extends JdbcTemplate implements RoleHierarchy {
 	
 	/**
 	 * 输入参数是登陆用户的所有权限（角色）
-	 * 现实逻辑：
+	 * 实现逻辑：
 	 * 循环每一个输入的权限，然后查询数据库，查询到该权限的所有下级权限
 	 */
 	@Override
